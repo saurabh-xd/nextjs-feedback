@@ -168,7 +168,7 @@ const page = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting}>
+        <Button type="submit" disabled={isSubmitting} className="cursor-pointer">
          {
           isSubmitting ? (
             <>

@@ -1,4 +1,5 @@
 import { resend } from "@/lib/resend";
+import { render } from '@react-email/render';
 import VerificationEmail from "../../emails/verificationEmail";
 import { ApiResponse } from '@/types/ApiResponse';
 
@@ -8,11 +9,13 @@ export async function sendVerificationEmail(
   verifyCode: string
 ): Promise<ApiResponse> {
   try {
+    const emailHtml = await render(VerificationEmail({ username, otp: verifyCode }));
+    
     await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: [email],
       subject: 'Mystery Message Verification Code',
-      react: VerificationEmail({ username: username, otp: verifyCode }),
+      html: emailHtml,
     });
     return { success: true, message: 'Verification email sent successfully.' };
   } catch (emailError) {
