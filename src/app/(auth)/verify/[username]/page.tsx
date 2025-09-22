@@ -42,7 +42,9 @@ const VerifyAccount = () => {
                  let errorMessage = axiosError.response?.data.message
             
                  
-                 toast("Verification failed")
+                 toast("Verification failed",{
+                  description: errorMessage
+                 })
                     
         }
      }
