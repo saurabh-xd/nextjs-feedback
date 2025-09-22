@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { Loader2, RefreshCcw } from "lucide-react";
-import MessageCard from "@/components/MessageCard";
+import {MessageCard} from "@/components/MessageCard";
 import { User } from "next-auth";
 
 function page() {
@@ -113,7 +113,7 @@ function page() {
    const { username } = session.user as User;
 
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
-  const profileUrl = `${baseUrl}/u/${username}`;
+  const profileUrl = `${baseUrl}/profile/${username}`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(profileUrl);
@@ -168,7 +168,7 @@ function page() {
         )}
       </Button>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {messages.length > 0 ? (
+       {messages.length > 0 ? (
           messages.map((message, index) => (
             <MessageCard
               key={message._id}
