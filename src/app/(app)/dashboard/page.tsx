@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { acceptMessageSchema } from "@/schemas/acceptMessageSchema";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
-import { toast, Toaster } from "sonner";
+import { toast} from "sonner";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
@@ -16,7 +16,7 @@ import { Loader2, RefreshCcw } from "lucide-react";
 import {MessageCard} from "@/components/MessageCard";
 import { User } from "next-auth";
 
-function page() {
+function Page() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setisLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false);
@@ -184,4 +184,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import z from 'zod'
 
-function profile() {
+function Profile() {
 
   const params = useParams()
   const username = params.username
@@ -97,4 +97,4 @@ function profile() {
   )
 }
 
-export default profile
+export default Profile
