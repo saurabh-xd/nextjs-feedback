@@ -1,7 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { messageSchema } from '@/schemas/messageSchema'
 import { ApiResponse } from '@/types/ApiResponse'
@@ -45,7 +44,7 @@ function Profile() {
       form.reset({ ...form.getValues(), content: '' });
 
     } catch (error) {
-      const axiosError = error as AxiosError<ApiResponse>;
+     
       toast(
         'Error',{
         description: 'Failed to sent message'} );

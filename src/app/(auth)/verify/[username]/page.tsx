@@ -10,6 +10,7 @@ import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 import {  useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import z from 'zod'
 
 const VerifyAccount = () => {
     const router = useRouter()
@@ -20,7 +21,7 @@ const VerifyAccount = () => {
      
      })
 
-     const onSubmit = async (data:any)=>{
+     const onSubmit = async (data:z.infer<typeof verifySchema>)=>{
 
         try {
             const response = await axios.post('/api/verify-code', {
@@ -39,7 +40,7 @@ const VerifyAccount = () => {
              console.error("error in verifying user");
                 
                  const axiosError = error as AxiosError<ApiResponse>
-                 let errorMessage = axiosError.response?.data.message
+                 const errorMessage = axiosError.response?.data.message
             
                  
                  toast("Verification failed",{
